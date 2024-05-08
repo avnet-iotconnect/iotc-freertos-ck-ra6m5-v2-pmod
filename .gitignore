@@ -1,0 +1,12 @@
+e2studio/.settings
+e2studio/Debug
+e2studio/Release
+e2studio/ra
+e2studio/ra_cfg
+e2studio/ra_gen
+e2studio/*.hex
+e2studio/*.log
+e2studio/.secure_*
+e2studio/*.pincfg
+
+.vscode

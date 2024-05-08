@@ -1,0 +1,3 @@
+[submodule "e2studio/src/da16k_comm"]
+	path = e2studio/src/da16k_comm
+	url = https://github.com/avnet-iotconnect/iotc-freertos-da16k-atcmd-lib
