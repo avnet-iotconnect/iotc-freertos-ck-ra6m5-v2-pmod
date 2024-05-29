@@ -43,18 +43,9 @@ You can add these to your device template in the IoTConnect Dashboard.
 
 Follow the [Renesas CK-RA6M5 v2 Quick Start Guide](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group#documents) to set up your CK-RA6M5 v2 board for use.
 
-Install the [e² Studio IDE](https://www.renesas.com/us/en/software-tool/e-studio).
+Install the [Flexible Software Package with e² Studio IDE](https://www.renesas.com/us/en/software-tool/flexible-software-package-fsp).
 
-![](assets/e2setup1.png)
-
-Make sure to select the `RA` target platforms. **If you wish to build/debug/develop for the DA16xxx modules in the future, select `DA` in addition.**.
-
-Select the following components (if they are not already) to install.
-
-
-![](assets/e2setup2.png)
-
-![](assets/e2setup3.png)
+The project is tested and built with FSP version 5.0.0, but it may work with later 5.x.x versions.
 
 You can now open / import, build and debug the project as per the Renesas Quick Start guide.
-
+Install the [e² Studio IDE](https://www.renesas.com/us/en/software-tool/e-studio).
