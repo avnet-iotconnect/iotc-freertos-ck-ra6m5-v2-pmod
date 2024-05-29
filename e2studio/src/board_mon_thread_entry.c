@@ -322,3 +322,7 @@ void set_led_frequency(uint16_t freq)
     g_board_status.led_frequency = freq;
     xEventGroupSetBits(g_update_console_event, STATUS_UPDATE_FREQ_INFO);
 }
+
+/**********************************************************************************************************************
+ End of function set_led_frequency
+ *********************************************************************************************************************/
