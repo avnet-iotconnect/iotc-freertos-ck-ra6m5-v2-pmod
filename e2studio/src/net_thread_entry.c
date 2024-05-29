@@ -120,7 +120,7 @@ uint8_t g_dns_server_address[4] = STATIC_IP_DNS_SERVER_ADDRESS;
 
 
 #if(ipconfigUSE_DHCP != 0)
-extern NetworkAddressingParameters_t xNetworkAddressing;
+NetworkAddressingParameters_t        xNetworkAddressing;
 NetworkAddressingParameters_t        g_xnd = {RESET_VALUE, RESET_VALUE, RESET_VALUE, RESET_VALUE, RESET_VALUE};
 #endif
 

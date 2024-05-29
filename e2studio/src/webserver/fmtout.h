@@ -49,6 +49,8 @@ Includes   <System Includes> , "Project Includes"
 /* Remove if float support not required */
 #define _FMTOUT_FLOAT_SUPPORT_
 
+#include <stdint.h>
+
 /******************************************************************************
 Typedefs
 ******************************************************************************/
