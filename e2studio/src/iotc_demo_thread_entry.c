@@ -84,10 +84,6 @@ void iotc_demo_thread_entry(void *pvParameters) {
         if (err == DA16K_SUCCESS) {
             printf_colour("Command received: %s, parameters: %s\r\n", current_cmd.command, current_cmd.parameters ? current_cmd.parameters : "<none>" );
         }
-        
-        vTaskDelay(pdMS_TO_TICKS(1000));
-
-        continue;
 
         /* obtain sensor data */
 
@@ -141,5 +137,6 @@ void iotc_demo_thread_entry(void *pvParameters) {
 
         memcpy(&prev_sensor_data, &new_sensor_data, sizeof(st_sensor_data_t));
 
+        vTaskDelay(pdMS_TO_TICKS(5000));
     }
 }
