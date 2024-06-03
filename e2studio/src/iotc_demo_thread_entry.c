@@ -78,6 +78,7 @@ void iotc_demo_thread_entry(void *pvParameters) {
     
         if (current_cmd.command) {
             iotc_demo_handle_command(&current_cmd);
+            da16k_destroy_cmd(current_cmd);
         }
 
         if (err == DA16K_SUCCESS) {
