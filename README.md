@@ -39,9 +39,15 @@ You can add these to your device template in the IoTConnect Dashboard.
     * `2` - Fast blinking
     * `3` - Very fast blinking
 
-## Instructions
+## Getting Started
 
 Follow the [Renesas CK-RA6M5 v2 Quick Start Guide](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group#documents) to set up your CK-RA6M5 v2 board for use.
+
+**Make sure the DA16x00 device is connected to the PMOD1 connector.**
+
+**Follow the [Quickstart Guide](./QUICKSTART.md) to flash the included binary image and use it.**
+
+# Building & Development
 
 Install the [Flexible Software Package with e² Studio IDE](https://www.renesas.com/us/en/software-tool/flexible-software-package-fsp).
 
