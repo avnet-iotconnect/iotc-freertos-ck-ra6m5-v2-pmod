@@ -54,4 +54,3 @@ Install the [Flexible Software Package with e² Studio IDE](https://www.renesas.
 The project is tested and built with FSP version 5.0.0, but it may work with later 5.x.x versions.
 
 You can now open / import, build and debug the project as per the Renesas Quick Start guide.
-Install the [e² Studio IDE](https://www.renesas.com/us/en/software-tool/e-studio).
