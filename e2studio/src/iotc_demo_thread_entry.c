@@ -91,49 +91,49 @@ void iotc_demo_thread_entry(void *pvParameters) {
 
         /* Renesas HS3001 */
 
-        da16k_send_float("hs3001_humidity",    hs300x_data_to_float(&new_sensor_data.hs300x.hs300x_data.humidity));
-        da16k_send_float("hs3001_temperature", hs300x_data_to_float(&new_sensor_data.hs300x.hs300x_data.temperature));
+        da16k_send_msg_direct_float("hs3001_humidity",    hs300x_data_to_float(&new_sensor_data.hs300x.hs300x_data.humidity));
+        da16k_send_msg_direct_float("hs3001_temperature", hs300x_data_to_float(&new_sensor_data.hs300x.hs300x_data.temperature));
 
         /* Renesas OB1203SD-C4R */
 
-        da16k_send_bool ("ob1203_calibrated", new_sensor_data.ob1203.calibrated);
+        da16k_send_msg_direct_bool ("ob1203_calibrated", new_sensor_data.ob1203.calibrated);
 
         if (new_sensor_data.ob1203.calibrated) {
-            da16k_send_bool ("ob1203_sensing", new_sensor_data.ob1203.sensing);
+            da16k_send_msg_direct_bool ("ob1203_sensing", new_sensor_data.ob1203.sensing);
 
             if (new_sensor_data.ob1203.sensing) {
-                da16k_send_uint("ob1203_oxygen",    new_sensor_data.ob1203.ob_spo2);
-                da16k_send_uint("ob1203_heartRate", new_sensor_data.ob1203.ob_hr);
+                da16k_send_msg_direct_uint("ob1203_oxygen",    new_sensor_data.ob1203.ob_spo2);
+                da16k_send_msg_direct_uint("ob1203_heartRate", new_sensor_data.ob1203.ob_hr);
             }
         }
 
         /* Renesas ZMOD4410 */
 
-        da16k_send_bool ("zmod4410_calibrated", new_sensor_data.zmod4410.calibrated);
+        da16k_send_msg_direct_bool ("zmod4410_calibrated", new_sensor_data.zmod4410.calibrated);
 
         if (new_sensor_data.zmod4410.calibrated) {
-            da16k_send_float("zmod4410_airQualityIndex",                new_sensor_data.zmod4410.zmod4410Data.iaq);
-            da16k_send_float("zmod4410_carbonDioxideLevel",             new_sensor_data.zmod4410.zmod4410Data.ec02);
-            da16k_send_float("zmod4410_totalVolatileOrganicCompounds",  new_sensor_data.zmod4410.zmod4410Data.tvoc);
+            da16k_send_msg_direct_float("zmod4410_airQualityIndex",                new_sensor_data.zmod4410.zmod4410Data.iaq);
+            da16k_send_msg_direct_float("zmod4410_carbonDioxideLevel",             new_sensor_data.zmod4410.zmod4410Data.ec02);
+            da16k_send_msg_direct_float("zmod4410_totalVolatileOrganicCompounds",  new_sensor_data.zmod4410.zmod4410Data.tvoc);
         }
 
         /* TDK ICM-42605 */
 
-        da16k_send_bool ("icm42605_available", new_sensor_data.icm42605.available);
+        da16k_send_msg_direct_bool ("icm42605_available", new_sensor_data.icm42605.available);
 
         if (new_sensor_data.icm42605.available) {
-            da16k_send_float("icm42605_gyroX",  new_sensor_data.icm42605.my_gyro.x);
-            da16k_send_float("icm42605_gyroY",  new_sensor_data.icm42605.my_gyro.x);
-            da16k_send_float("icm42605_gyroZ",  new_sensor_data.icm42605.my_gyro.x);
-            da16k_send_float("icm42605_accelX", new_sensor_data.icm42605.my_accel.x);
-            da16k_send_float("icm42605_accelY", new_sensor_data.icm42605.my_accel.x);
-            da16k_send_float("icm42605_accelZ", new_sensor_data.icm42605.my_accel.x);
+            da16k_send_msg_direct_float("icm42605_gyroX",  new_sensor_data.icm42605.my_gyro.x);
+            da16k_send_msg_direct_float("icm42605_gyroY",  new_sensor_data.icm42605.my_gyro.x);
+            da16k_send_msg_direct_float("icm42605_gyroZ",  new_sensor_data.icm42605.my_gyro.x);
+            da16k_send_msg_direct_float("icm42605_accelX", new_sensor_data.icm42605.my_accel.x);
+            da16k_send_msg_direct_float("icm42605_accelY", new_sensor_data.icm42605.my_accel.x);
+            da16k_send_msg_direct_float("icm42605_accelZ", new_sensor_data.icm42605.my_accel.x);
         }
 
         /* TDK ICP-20100 */
 
-        da16k_send_float("icp20100_temperature", new_sensor_data.icp20100.temperatureicp);
-        da16k_send_float("icp20100_pressure",    new_sensor_data.icp20100.pressureicp);
+        da16k_send_msg_direct_float("icp20100_temperature", new_sensor_data.icp20100.temperatureicp);
+        da16k_send_msg_direct_float("icp20100_pressure",    new_sensor_data.icp20100.pressureicp);
 
         memcpy(&prev_sensor_data, &new_sensor_data, sizeof(st_sensor_data_t));
 

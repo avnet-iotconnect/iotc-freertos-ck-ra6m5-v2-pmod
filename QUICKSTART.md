@@ -1,6 +1,6 @@
 # Quickstart
 
-The binary image is located at `./e2studio/` (`.hex` extension).
+The binary image is located at `./e2studio/Debug` (`.hex` extension).
 
 To flash the image, please download the [Renesas Flash Programmer](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#downloads).
 
@@ -19,11 +19,11 @@ To flash the image, use the `rfp-cli` tool with the `-device RA -tool jlink -if 
 Here is an example:
 
 ```
-~/work/iotconnect/test $ linux-x64/rfp-cli -device RA -tool jlink -if swd -a ./e2studio/quickstart_ck_ra6m5_v2_ep.hex 
+~/work/iotconnect/test $ linux-x64/rfp-cli -device RA -tool jlink -if swd -a ./e2studio/Debug/quickstart_ck_ra6m5_v2_ep.hex
 
 Renesas Flash Programmer CLI V1.09
 Module Version: V3.15.00.000
-Load: "/home/user/work/test/e2studio/quickstart_ck_ra6m5_v2_ep.hex" (Size=5135834, CRC=5C728790)
+Load: "/home/user/work/test/e2studio/Debug/quickstart_ck_ra6m5_v2_ep.hex" (Size=5135834, CRC=5C728790)
 
 Connecting the tool (J-Link)
       J-Link Firmware: J-Link OB-RA4M2 compiled Oct 30 2023 12:13:20

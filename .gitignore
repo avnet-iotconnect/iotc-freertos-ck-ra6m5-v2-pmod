@@ -1,5 +1,7 @@
 e2studio/.settings
-e2studio/Debug
+e2studio/Debug/*
+!e2studio/Debug/*.hex
+
 e2studio/Release
 e2studio/ra
 e2studio/ra_cfg
