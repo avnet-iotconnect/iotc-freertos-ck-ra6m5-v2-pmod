@@ -54,3 +54,16 @@ Install the [Flexible Software Package with e² Studio IDE](https://www.renesas.
 The project is tested and built with FSP version 5.0.0, but it may work with later 5.x.x versions.
 
 You can now open / import, build and debug the project as per the Renesas Quick Start guide.
+
+## Enabling Automatic IoTConnect / Device Configuration
+
+The underlying ATCMD library can configure the device automatically using certain APIs.
+
+**This allows you to skip manual configuration of the DA16xxx PMOD device** (you are, however, still required to flash the firmware on it.)
+
+The file `iotc_demo_thread_entry.c` contains definitions for these:
+
+* Define `DA16K_IOTC_CONFIG_USED` in the project to use custom IoTConnect configuration parameters
+* Define `DA16K_WIFI_CONFIG_USED` in the project to use custom WiFi configuration parameters
+
+![](assets/cfgdef.png)
