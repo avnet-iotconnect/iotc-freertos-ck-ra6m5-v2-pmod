@@ -55,6 +55,30 @@ static void iotc_demo_handle_command(const da16k_cmd_t *cmd) {
     }
 }
 
+/* Custom IoTConnect configuration parameters - define DA16K_IOTC_CONFIG_USED to use them */
+#if defined (DA16K_IOTC_CONFIG_USED)
+
+#define IOTC_CONNECTION_TYPE    DA16K_IOTC_AWS
+#define IOTC_CPID               "<INSERT CPID HERE>"
+#define IOTC_DUID               "<INSERT DUID HERE>"
+#define IOTC_ENV                "<INSERT ENV HERE>"
+
+static da16k_wifi_cfg_t iotcConfig = { IOTC_CONNECTION_TYPE, IOTC_CPID, IOTC_DUID, IOTC_ENV, 0, NULL, NULL, NULL }
+#define IOTC_CONFIG_PTR &iotcConfig
+#else
+#define IOTC_CONFIG_PTR NULL
+#endif
+
+/* Custom WiFi configuration parameters - define DA16K_WIFI_CONFIG_USED to use them */
+#if defined (DA16K_WIFI_CONFIG_USED)
+#define IOTC_SSID               "<INSERT SSID HERE>"
+#define IOTC_PASSPHRASE         "<INSERT PASSPHRASE HERE>"
+
+static da16k_wifi_cfg_t wifiConfig = { IOTC_SSID, IOTC_PASSPHRASE, false, 0 };
+#define WIFI_CONFIG_PTR &wifiConfig
+#else
+#define WIFI_CONFIG_PTR NULL
+#endif
 
 /* IoTCDemo entry function */
 /* pvParameters contains TaskHandle_t */
@@ -62,7 +86,7 @@ static void iotc_demo_handle_command(const da16k_cmd_t *cmd) {
 void iotc_demo_thread_entry(void *pvParameters) {
     FSP_PARAMETER_NOT_USED (pvParameters);
 
-    da16k_cfg_t da16kConfig;
+    da16k_cfg_t da16kConfig = { IOTC_CONFIG_PTR, WIFI_CONFIG_PTR, 0 };
 
     st_sensor_data_t prev_sensor_data = {0};
     st_sensor_data_t new_sensor_data = {0};
