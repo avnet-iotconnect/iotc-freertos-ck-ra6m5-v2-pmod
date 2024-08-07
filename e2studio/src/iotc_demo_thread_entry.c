@@ -14,9 +14,9 @@ extern void sensor_thread_get_status(st_sensor_data_t *p_data);
 
 /* HS300X sensor data has a weird format where the decimal part is separate and goes from 00-99
  * so we need to massage it a little bit ...*/
-static inline float hs300x_data_to_float(const rm_hs300x_sensor_data_t *data) {
+static inline double hs300x_data_to_float(const rm_hs300x_sensor_data_t *data) {
     assert(NULL != data);
-    return ((float) data->integer_part) + ((float) (data->decimal_part) / 100.0f);
+    return ((double) data->integer_part) + ((double) (data->decimal_part) / 100.0);
 }
 
 static inline bool string_starts_with(const char *full_string, const char *to_check) {
