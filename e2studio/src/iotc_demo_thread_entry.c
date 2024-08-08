@@ -63,8 +63,8 @@ static void iotc_demo_handle_command(const da16k_cmd_t *cmd) {
 #define IOTC_DUID               "<INSERT DUID HERE>"
 #define IOTC_ENV                "<INSERT ENV HERE>"
 
-static da16k_wifi_cfg_t iotcConfig = { IOTC_CONNECTION_TYPE, IOTC_CPID, IOTC_DUID, IOTC_ENV, 0, NULL, NULL, NULL }
-#define IOTC_CONFIG_PTR &iotcConfig
+static da16k_wifi_cfg_t iotc_config = { IOTC_CONNECTION_TYPE, IOTC_CPID, IOTC_DUID, IOTC_ENV, 0, NULL, NULL, NULL }
+#define IOTC_CONFIG_PTR &iotc_config
 #else
 #define IOTC_CONFIG_PTR NULL
 #endif
@@ -74,8 +74,8 @@ static da16k_wifi_cfg_t iotcConfig = { IOTC_CONNECTION_TYPE, IOTC_CPID, IOTC_DUI
 #define IOTC_SSID               "<INSERT SSID HERE>"
 #define IOTC_PASSPHRASE         "<INSERT PASSPHRASE HERE>"
 
-static da16k_wifi_cfg_t wifiConfig = { IOTC_SSID, IOTC_PASSPHRASE, false, 0 };
-#define WIFI_CONFIG_PTR &wifiConfig
+static da16k_wifi_cfg_t wifi_config = { IOTC_SSID, IOTC_PASSPHRASE, false, 0 };
+#define WIFI_CONFIG_PTR &wifi_config
 #else
 #define WIFI_CONFIG_PTR NULL
 #endif
@@ -86,12 +86,12 @@ static da16k_wifi_cfg_t wifiConfig = { IOTC_SSID, IOTC_PASSPHRASE, false, 0 };
 void iotc_demo_thread_entry(void *pvParameters) {
     FSP_PARAMETER_NOT_USED (pvParameters);
 
-    da16k_cfg_t da16kConfig = { IOTC_CONFIG_PTR, WIFI_CONFIG_PTR, 0 };
+    da16k_cfg_t da16k_config = { IOTC_CONFIG_PTR, WIFI_CONFIG_PTR, 0 };
 
     st_sensor_data_t prev_sensor_data = {0};
     st_sensor_data_t new_sensor_data = {0};
 
-    da16k_err_t err = da16k_init(&da16kConfig);
+    da16k_err_t err = da16k_init(&da16k_config);
 
     assert(err == DA16K_SUCCESS);
 
