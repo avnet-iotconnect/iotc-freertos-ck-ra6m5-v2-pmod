@@ -63,7 +63,19 @@ static void iotc_demo_handle_command(const da16k_cmd_t *cmd) {
 #define IOTC_DUID               "<INSERT DUID HERE>"
 #define IOTC_ENV                "<INSERT ENV HERE>"
 
-static da16k_wifi_cfg_t iotc_config = { IOTC_CONNECTION_TYPE, IOTC_CPID, IOTC_DUID, IOTC_ENV, 0, NULL, NULL, NULL }
+
+/* Custom device cert/key - place pem files in ../cert/ to use them. */
+#include "../cert/iotc_demo_dev_cert.h"
+
+#if defined (__DEVICE_CERT__)
+static const char device_cert[] = __DEVICE_CERT__;
+static const char device_key[] = __DEVICE_KEY__;
+#else
+static const char *device_cert = NULL;
+static const char *device_key = NULL;
+#endif
+
+static da16k_iotc_cfg_t iotc_config = { IOTC_CONNECTION_TYPE, IOTC_CPID, IOTC_DUID, IOTC_ENV, 0, device_cert, device_key };
 #define IOTC_CONFIG_PTR &iotc_config
 #else
 #define IOTC_CONFIG_PTR NULL
@@ -82,7 +94,6 @@ static da16k_wifi_cfg_t wifi_config = { IOTC_SSID, IOTC_PASSPHRASE, false, 0 };
 
 /* IoTCDemo entry function */
 /* pvParameters contains TaskHandle_t */
-
 void iotc_demo_thread_entry(void *pvParameters) {
     FSP_PARAMETER_NOT_USED (pvParameters);
 
