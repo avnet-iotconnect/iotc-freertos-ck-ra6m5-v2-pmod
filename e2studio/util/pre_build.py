@@ -30,7 +30,7 @@ def main():
                 for line in certf:
                     line = line.replace('\r', '')
                     line = line.replace('\n', '')
-                    of.write(f'"{line}" \\\n')
+                    of.write(f'"{line}\\n" \\\n')
 
                 of.write('\n')
 
@@ -38,7 +38,7 @@ def main():
                 for line in keyf:
                     line = line.replace('\r', '')
                     line = line.replace('\n', '')
-                    of.write(f'"{line}" \\\n')
+                    of.write(f'"{line}\\n" \\\n')
                     
                 of.write('\n')
 
