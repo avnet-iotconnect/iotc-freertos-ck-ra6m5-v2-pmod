@@ -7,15 +7,14 @@
 
 import os
 import platform
+import EmbedFS
 
 def main():
-    #   Create webserver FS blob
-    #   TODO: Reverse engineer this and implement for linux maybe?
 
-    if platform.system() == "Windows":
-        os.system(f'EmbedFS.exe -l -g -x -i "..\src\webserver\website\*" -o "..\src\webserver" -f "fswebsite.bin"')
-    else:
-        print(f'Generating Webserver FS blob not implemented on operating system "{platform.system()}", skipping...')
+    #   Create webserver FS blob
+
+    print('Generating Webserver FS blob...')
+    EmbedFS.embedFS_packDirectory('../src/webserver/website', '../src/webserver/fswebsite.bin')
 
     #   Generate certificate header file
 
@@ -50,4 +49,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
