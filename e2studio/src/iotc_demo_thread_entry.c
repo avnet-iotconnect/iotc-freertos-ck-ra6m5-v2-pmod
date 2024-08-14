@@ -64,10 +64,12 @@ static void iotc_demo_handle_command(const da16k_cmd_t *cmd) {
 #define IOTC_ENV                "<INSERT ENV HERE>"
 
 
-/* Custom device cert/key - place pem files in ../cert/ to use them. */
+/*  Custom device cert/key - place pem files in ../cert/ to use them. 
+    WARNING: Transmitting certificates via AT commands is INSECURE and the functionality is only provided for testing purposes! */
 #include "../cert/iotc_demo_dev_cert.h"
 
 #if defined (__DEVICE_CERT__)
+#warning "WARNING: Transmitting certificates via AT commands is INSECURE and the functionality is only provided for testing purposes!"
 static const char device_cert[] = __DEVICE_CERT__;
 static const char device_key[] = __DEVICE_KEY__;
 #else
