@@ -83,3 +83,10 @@ The file names must be:
 * `device_key.pem` (private key)
 
 There is an automatic pre-build step in the form of a python script, `/util/pre_build.py`. which generates a header file from these.
+
+---
+***WARNING:***
+
+***CLIENT CERTIFICATE TRANSMISSION IS INSECURE AND THE FUNCTIONALITY IS ONLY PROVIDED FOR TESTING PURPOSES.*** 
+
+---
