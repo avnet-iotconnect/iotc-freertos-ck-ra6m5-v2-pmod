@@ -31,7 +31,7 @@ static void iotc_demo_handle_command(const da16k_cmd_t *cmd) {
     /* All commands we know need parameters. */
 
     if (!command_has_params(cmd)) {
-        printf_colour("ERROR: Command '%s' needs a parameter!\r\n");
+        printf_colour("ERROR: Command '%s' needs a parameter!\r\n", cmd->command);
         return;
     }
 
