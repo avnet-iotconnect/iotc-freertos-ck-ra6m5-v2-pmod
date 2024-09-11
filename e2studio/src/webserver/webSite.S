@@ -40,5 +40,5 @@
     .global gFsWebSite
     .align 4
 gFsWebSite:
-//	.incbin "fsWebSite.bin"
+	.incbin "fsWebSite.bin"
     .end

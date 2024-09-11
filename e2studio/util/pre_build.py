@@ -14,7 +14,7 @@ def main():
     #   Create webserver FS blob
 
     print('Generating Webserver FS blob...')
-    EmbedFS.embedFS_packDirectory('../src/webserver/website', '../src/webserver/fswebsite.bin')
+    EmbedFS.embedFS_packDirectory('../src/webserver/website', '../src/webserver/fsWebSite.bin')
 
     #   Generate certificate header file
 
