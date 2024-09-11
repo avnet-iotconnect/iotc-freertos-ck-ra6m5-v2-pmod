@@ -102,7 +102,7 @@ void iotc_demo_thread_entry(void *pvParameters) {
     da16k_cfg_t da16k_config = { IOTC_CONFIG_PTR, WIFI_CONFIG_PTR, 0 };
 
     st_sensor_data_t prev_sensor_data = {0};
-    st_sensor_data_t new_sensor_data = {0};
+    st_sensor_data_t sensor_data = {0};
 
     da16k_err_t err = da16k_init(&da16k_config);
 
@@ -110,10 +110,13 @@ void iotc_demo_thread_entry(void *pvParameters) {
 
     while (1) {
         da16k_cmd_t current_cmd = {0};
+        da16k_msg_t *msg = da16k_create_msg();
+
+        assert(msg != NULL);
 
         err = da16k_get_cmd(&current_cmd);
-    
-        if (current_cmd.command) {
+
+        if (err == DA16K_SUCCESS) {
             iotc_demo_handle_command(&current_cmd);
             da16k_destroy_cmd(current_cmd);
         }
@@ -124,55 +127,46 @@ void iotc_demo_thread_entry(void *pvParameters) {
 
         /* obtain sensor data */
 
-        sensor_thread_get_status(&new_sensor_data);
+        sensor_thread_get_status(&sensor_data);
 
         /* Renesas HS3001 */
 
-        da16k_send_msg_direct_float("hs3001_humidity",    hs300x_data_to_float(&new_sensor_data.hs300x.hs300x_data.humidity));
-        da16k_send_msg_direct_float("hs3001_temperature", hs300x_data_to_float(&new_sensor_data.hs300x.hs300x_data.temperature));
+        da16k_msg_add_num(msg, "hs3001_humidity",    hs300x_data_to_float(&sensor_data.hs300x.hs300x_data.humidity));
+        da16k_msg_add_num(msg, "hs3001_temperature", hs300x_data_to_float(&sensor_data.hs300x.hs300x_data.temperature));
+
+        /* TDK ICP-20100 */
+
+        da16k_msg_add_num(msg, "icp20100_temperature", sensor_data.icp20100.temperatureicp);
+        da16k_msg_add_num(msg, "icp20100_pressure",    sensor_data.icp20100.pressureicp);
 
         /* Renesas OB1203SD-C4R */
 
-        da16k_send_msg_direct_bool ("ob1203_calibrated", new_sensor_data.ob1203.calibrated);
-
-        if (new_sensor_data.ob1203.calibrated) {
-            da16k_send_msg_direct_bool ("ob1203_sensing", new_sensor_data.ob1203.sensing);
-
-            if (new_sensor_data.ob1203.sensing) {
-                da16k_send_msg_direct_uint("ob1203_oxygen",    new_sensor_data.ob1203.ob_spo2);
-                da16k_send_msg_direct_uint("ob1203_heartRate", new_sensor_data.ob1203.ob_hr);
-            }
+        if (sensor_data.ob1203.calibrated && sensor_data.ob1203.sensing) {
+            da16k_msg_add_num(msg, "ob1203_oxygen",    (double) sensor_data.ob1203.ob_spo2);
+            da16k_msg_add_num(msg, "ob1203_heartRate", (double) sensor_data.ob1203.ob_hr);
         }
 
         /* Renesas ZMOD4410 */
 
-        da16k_send_msg_direct_bool ("zmod4410_calibrated", new_sensor_data.zmod4410.calibrated);
-
-        if (new_sensor_data.zmod4410.calibrated) {
-            da16k_send_msg_direct_float("zmod4410_airQualityIndex",                new_sensor_data.zmod4410.zmod4410Data.iaq);
-            da16k_send_msg_direct_float("zmod4410_carbonDioxideLevel",             new_sensor_data.zmod4410.zmod4410Data.ec02);
-            da16k_send_msg_direct_float("zmod4410_totalVolatileOrganicCompounds",  new_sensor_data.zmod4410.zmod4410Data.tvoc);
+        if (sensor_data.zmod4410.calibrated) {
+            da16k_msg_add_num(msg, "zmod4410_airQualityIndex",                sensor_data.zmod4410.zmod4410Data.iaq);
+            da16k_msg_add_num(msg, "zmod4410_carbonDioxideLevel",             sensor_data.zmod4410.zmod4410Data.ec02);
+            da16k_msg_add_num(msg, "zmod4410_totalVolatileOrganicCompounds",  sensor_data.zmod4410.zmod4410Data.tvoc);
         }
 
         /* TDK ICM-42605 */
 
-        da16k_send_msg_direct_bool ("icm42605_available", new_sensor_data.icm42605.available);
-
-        if (new_sensor_data.icm42605.available) {
-            da16k_send_msg_direct_float("icm42605_gyroX",  new_sensor_data.icm42605.my_gyro.x);
-            da16k_send_msg_direct_float("icm42605_gyroY",  new_sensor_data.icm42605.my_gyro.x);
-            da16k_send_msg_direct_float("icm42605_gyroZ",  new_sensor_data.icm42605.my_gyro.x);
-            da16k_send_msg_direct_float("icm42605_accelX", new_sensor_data.icm42605.my_accel.x);
-            da16k_send_msg_direct_float("icm42605_accelY", new_sensor_data.icm42605.my_accel.x);
-            da16k_send_msg_direct_float("icm42605_accelZ", new_sensor_data.icm42605.my_accel.x);
+        if (sensor_data.icm42605.available) {
+            da16k_msg_add_num(msg, "icm42605_gyroX",  sensor_data.icm42605.my_gyro.x);
+            da16k_msg_add_num(msg, "icm42605_gyroY",  sensor_data.icm42605.my_gyro.y);
+            da16k_msg_add_num(msg, "icm42605_gyroZ",  sensor_data.icm42605.my_gyro.z);
+            da16k_msg_add_num(msg, "icm42605_accelX", sensor_data.icm42605.my_accel.x);
+            da16k_msg_add_num(msg, "icm42605_accelY", sensor_data.icm42605.my_accel.y);
+            da16k_msg_add_num(msg, "icm42605_accelZ", sensor_data.icm42605.my_accel.z);
         }
 
-        /* TDK ICP-20100 */
-
-        da16k_send_msg_direct_float("icp20100_temperature", new_sensor_data.icp20100.temperatureicp);
-        da16k_send_msg_direct_float("icp20100_pressure",    new_sensor_data.icp20100.pressureicp);
-
-        memcpy(&prev_sensor_data, &new_sensor_data, sizeof(st_sensor_data_t));
+        da16k_send_msg(msg);
+        da16k_destroy_msg(msg);
 
         vTaskDelay(pdMS_TO_TICKS(5000));
     }
