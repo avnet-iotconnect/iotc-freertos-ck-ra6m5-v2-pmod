@@ -1,5 +1,13 @@
 # Quickstart
 
+## **Note:** The Quickstart procedure requires the DA16xxx PMOD device to be *fully set up and configured for IoTConnect, WiFi and your device-specific info (certificate/key)*
+
+### Following the [build guide](README.md) - i.e. manually building and flashing the firmware, you can specifiy custom IoTConnect and WiFi settings to avoid having to set the DA16xxx PMOD device manually.
+
+---
+
+## Initial setup
+
 The binary image is located at `./e2studio/Debug` (`.hex` extension).
 
 To flash the image, please download the [Renesas Flash Programmer](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#downloads).

@@ -49,8 +49,44 @@ Follow the [Renesas CK-RA6M5 v2 Quick Start Guide](https://www.renesas.com/us/en
 
 # Building & Development
 
-Install the [Flexible Software Package with e² Studio IDE](https://www.renesas.com/us/en/software-tool/flexible-software-package-fsp).
+* Install **Python 3.8 or higher**
+* Install the [Flexible Software Package with e² Studio IDE](https://www.renesas.com/us/en/software-tool/flexible-software-package-fsp).
 
 The project is tested and built with FSP version 5.0.0, but it may work with later 5.x.x versions.
 
 You can now open / import, build and debug the project as per the Renesas Quick Start guide.
+
+## Enabling Automatic IoTConnect / Device Configuration
+
+The underlying ATCMD library can configure the device automatically using certain APIs.
+
+**This allows you to skip manual configuration of the DA16xxx PMOD device** (you are, however, still required to flash the firmware on it.)
+
+The file `iotc_demo_thread_entry.c` contains definitions for these:
+
+* Define `DA16K_IOTC_CONFIG_USED` in the project to use custom IoTConnect configuration parameters
+* Define `DA16K_WIFI_CONFIG_USED` in the project to use custom WiFi configuration parameters
+
+`DA16K_IOTC_AWS` may be replaced with `DA16K_IOTC_AZURE` to fit your environment.
+
+![](assets/cfgdef.png)
+
+### Adding a Device Client Certificate / Private Key for Testing
+
+**NOTE: This requires a custom IOTC Configuration via `DA16K_IOTC_CONFIG_USED` to work (see above)!**
+
+You may place device client certificate and private key files in the PEM format into the **`e2studio/cert/`** directory.
+
+The file names must be:
+
+* `device_cert.pem` (client cert)
+* `device_key.pem` (private key)
+
+There is an automatic pre-build step in the form of a python script, `/util/pre_build.py`. which generates a header file from these.
+
+---
+***WARNING:***
+
+***CLIENT CERTIFICATE TRANSMISSION IS INSECURE AND THE FUNCTIONALITY IS ONLY PROVIDED FOR TESTING PURPOSES.*** 
+
+---
