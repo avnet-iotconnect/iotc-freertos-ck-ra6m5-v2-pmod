@@ -8,9 +8,10 @@ as a gateway.
 
 ## Hardware Requirements
 
-* [Renesas CK-RA6M5 v2 Cloud Kit](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group)
-* [DA16600 Wi-Fi-BLE combo module](https://www.renesas.com/en/products/da16600mod). 
-or [DA16200 Wi-Fi-BLE combo module](https://www.renesas.com/en/products/da16200mod)
+* [Renesas CK-RA6M5 v2 Cloud Kit](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group).
+* [DA16600 Wi-Fi-BLE combo module](https://www.renesas.com/en/products/da16600mod)
+or [DA16200 Wi-Fi-BLE combo module](https://www.renesas.com/en/products/da16200mod).
+
 ## Guide
 
 ### 1. Configure DA16x00 PMOD Module
