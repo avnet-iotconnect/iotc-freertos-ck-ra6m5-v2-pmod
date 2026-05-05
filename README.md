@@ -9,21 +9,24 @@ as a gateway.
 ## Hardware Requirements
 
 * [Renesas CK-RA6M5 v2 Cloud Kit](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group)
-* [DA16600 Wi-Fi-BLE combo module](https://www.renesas.com/us/en/products/wireless-connectivity/wi-fi/low-power-wi-fi/da16600mod-ultra-low-power-wi-fi-bluetooth-low-energy-combo-modules-battery-powered-iot-devices).
-
+* [DA16600 Wi-Fi-BLE combo module](https://www.renesas.com/en/products/da16600mod). 
+or [DA16200 Wi-Fi-BLE combo module](https://www.renesas.com/en/products/da16200mod)
 ## Guide
 
-### 1. Configure DA16600 PMOD Module
+### 1. Configure DA16x00 PMOD Module
 
 This project is dependent upon the [iotc-freertos-da16k-atcmd-lib](https://github.com/avnet-iotconnect/iotc-freertos-da16k-atcmd-lib) 
 project. A fully set up DA16600 PMOD Module is required to be configured and connected to /IOTCONNECT. 
 Follow the [DA16K AT Interface Quick Start guide](https://github.com/avnet-iotconnect/iotc-dialog-da16k-sdk/blob/main/doc/QUICKSTART.md) 
 to achieve this before proceeding to the next step of this guide.
 
+**Ensure that the DA16x00 module is connected to the PMOD1 connector of CK-RA6M5 v2.**
+
 ### 2. Follow Manufacturer Setup Guide First
 
 Follow the [Renesas CK-RA6M5 v2 Quick Start Guide](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group#documents) 
 to set up your CK-RA6M5 v2 board so it is ready for this project.
+
 
 ### 3. Download the Pre-Compiled CK-RA6M5 Firmware
 
