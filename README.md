@@ -1,6 +1,6 @@
-# CK-RA6M5 v2 PMOD /IOTCONNECT Quickstart
+# CK-RA6M5 v2 PMOD /IOTCONNECT Getting Started Guide
 
-This quickstart guide will walk you through how to enable an Avnet /IOTCONNECT AT-Command Interface project example for 
+This Getting Started guide will walk you through how to enable an Avnet /IOTCONNECT AT-Command Interface project example for 
 the Renesas CK-RA6M5 v2.
 
 This code is based on the [CK-RA6M5 v2 Sample Code](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group#documents) project and uses an [/IOTCONNECT AT Command-enabled PMOD module (e.g. DA16K based)](https://github.com/avnet-iotconnect/iotc-dialog-da16k-sdk) 
