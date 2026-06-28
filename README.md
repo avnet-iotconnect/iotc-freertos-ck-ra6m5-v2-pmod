@@ -1,173 +1,109 @@
-# CK-RA6M5 v2 PMOD /IOTCONNECT Quickstart
+# QuickStart: Renesas Cloud Kit CK-RA6M5 with /IOTCONNECT
+[Purchase the CK-RA6M5 Cloud Kit](https://www.newark.com/renesas/rtk7cka6m5s04001be/cloud-kit-32bit-arm-cortex-m33f/dp/33AK7066)
+![](assets/ck-ra6m5.png)
+## 1. Introduction
+This guide will walk through the steps of setting up the CK-RA6M5 for connecting to the Avnet /IOTCONNECT platform and interacting with the onboard sensors in realtime via a Dynamic Dashboard.
+This project is based on the [Renesas CK-RA6M5 Sample Code](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group#documents) and the [/IOTCONNECT AT Command-enabled PMOD module](https://github.com/avnet-iotconnect/iotc-dialog-da16k-sdk) for connectivity. 
 
-This quickstart guide will walk you through how to enable an Avnet /IOTCONNECT AT-Command Interface project example for 
-the Renesas CK-RA6M5 v2.
+## 2. Prerequisites
+* [Renesas CK-RA6M5 v2 Cloud Kit](https://www.newark.com/renesas/rtk7cka6m5s04001be/cloud-kit-32bit-arm-cortex-m33f/dp/33AK7066)
+* [FTDI USB Cable](https://www.amazon.com/DSD-TECH-SH-U09G-Serial-FT232RL/dp/B083HVM7VZ/)
+* PC with Windows 11
+* Available 2.4GHz WiFi Network
+* A Serial Terminal Application such as [Tera Term](https://teratermproject.github.io/index-en.html)
+* [Renesas Flash Programmer for Windows](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#downloads)
 
-This code is based on the [CK-RA6M5 v2 Sample Code](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group#documents) project and uses an [/IOTCONNECT AT Command-enabled PMOD module (e.g. DA16K based)](https://github.com/avnet-iotconnect/iotc-dialog-da16k-sdk) 
-as a gateway.
+## 3. Create /IOTCONNECT Account
+An /IOTCONNECT account with an AWS backend is required.  If you need to create an account, a free trial subscription is available.
+The free subscription may be obtained directly from [iotconnect.io](https://iotconnect.io) or through the AWS Marketplace.
 
-## Hardware Requirements
-
-* [Renesas CK-RA6M5 v2 Cloud Kit](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group).
-* [DA16600 Wi-Fi-BLE combo module](https://www.renesas.com/en/products/da16600mod)
-or [DA16200 Wi-Fi-BLE combo module](https://www.renesas.com/en/products/da16200mod).
-
-## Guide
-
-### 1. Configure DA16x00 PMOD Module
-
-This project is dependent upon the [iotc-freertos-da16k-atcmd-lib](https://github.com/avnet-iotconnect/iotc-freertos-da16k-atcmd-lib) 
-project. A fully set up DA16600 PMOD Module is required to be configured and connected to /IOTCONNECT. 
-Follow the [DA16K AT Interface Quick Start guide](https://github.com/avnet-iotconnect/iotc-dialog-da16k-sdk/blob/main/doc/QUICKSTART.md) 
-to achieve this before proceeding to the next step of this guide.
-
-**Ensure that the DA16x00 module is connected to the PMOD1 connector of CK-RA6M5 v2.**
-
-### 2. Follow Manufacturer Setup Guide First
-
-Follow the [Renesas CK-RA6M5 v2 Quick Start Guide](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ck-ra6m5-cloud-kit-based-ra6m5-mcu-group#documents) 
-to set up your CK-RA6M5 v2 board so it is ready for this project.
+* Option #1 **(Recommended)**   
+/IOTCONNECT via [AWS Marketplace](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/subscription/iotconnect_aws_marketplace.md) - 60 day trial; AWS account creation required  
 
 
-### 3. Download the Pre-Compiled CK-RA6M5 Firmware
-
-Click [here](./e2studio/Debug/quickstart_ck_ra6m5_v2_ep.hex) to access and download the binary image firmware.
-
-### 4. Flash the Firmware
-
-Follow the appropriate set of instructions below depending on your host PC operating system.
-
-#### Linux Host PC
-
-1.) Download the latest Linux version of the [Renesas Flash Programmer](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#downloads) 
+* Option #2  
+/IOTCONNECT via [iotconnect.io](https://subscription.iotconnect.io/subscribe?cloud=aws) - 30 day trial; no credit card required
 
 > [!NOTE]
-> At the time of testing, the latest released version is **3.15**.
+> Be sure to check any SPAM folder for the temporary password after registering.
 
-2.) Unpack the `RFP_CLI` archive downloaded from the Renesas Flash Programmer link above (e.g. `RFP_CLI_Linux_V31500_x64.tgz`).
+## 4. Import Device Template
 
-```bash
-tar -xvzf RFP_CLI_Linux_V31500_x64.tgz
-```
+1. Download the pre-made [Device Template](./template/da16k_template.JSON) for the Edge E84 AI Kit.
+2. Login to the platform by navigating to [console.iotconnect.io](https://console.iotconnect.io)
+3. From the navigation panel on the left, select the **Devices** icon and the **Device** sub-menu.<br>![menu-devices-device.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/menu-devices-device.png?raw=true)  
+4. At the bottom of the page, select the **Templates** icon from the toolbar.<br>![menu-templates.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/menu-templates.png?raw=true)  
+5. At the top-right of the page, select the **Create Template** button.<br>![button-create-template.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/button-create-template.png?raw=true)  
+6. At the top-right of the page, select the **Import" button**.<br>![button-import.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/button-import.png?raw=true)  
+7. Click the **Browse** button, navigate to and select the downloaded template `da16k_template.json`
+8. Click **Save**
 
-> [!NOTE]
-> The resulting folder should have the necessary `rfp-cli` program.
+## 5. Create a Device
+In this step, we will create a **Device** associated with the previously imported **Device Template**
 
-3.) Connect your board to the PC using the USB cable.
+1. In the ribbon at the bottom of the screen, click the **Devices**
+2. At the top-right, click **Create Device**  
+![button-create-device.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/button-create-device.png?raw=true)
+3. Enter a custom device **Unique ID** (also called a **DUID**) and **Device Name** such as `CK-RA6M5`
+4. Select the **Entity** to associate the device (For new accounts, there is only one option)  
+5. Select the previously imported template `da16k` 
+6. Under **Device Certificate** select **Auto-generated**
+7. Click **Save & View**
+8. Download the **Device Configuration Information** by clicking the icon in the upper right of the device page  
+![icon-device-configuration-information.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/icon-device-configuration-information.png?raw=true)
 
-4.) To flash the image, `cd` into the extracted flash programmer folder and execute the `rfp-cli` tool with this command:
+## 6. Obtain Certificates
+In this step we will locate and download the **device certificates**.
 
-```bash
-rfp-cli -device RA -tool jlink -if swd -a ~/Downloads/quickstart_ck_ra6m5_v2_ep.hex
-```
+1. Just below the Device Configuration Information icon, click the `Connection Info` link.<br>![connection-info.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/connection-info.png?raw=true)
+2. Click on the **Certificates** icon in the top-right and save the file to your working directory.<br>![icon-certificates.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/icon-certificates.png?raw=true)
+3. Extract the contents of the `*-certificates.zip` file for use in the next section. 
 
-Here is an example of the expected terminal output:
+> [!IMPORTANT]
+> You will need the information contained within the 'Device Configuration Information' and the 'Certificates' files to complete the following step. 
+## 7. Flash & Program the DA16600 PMOD
 
-```
-Renesas Flash Programmer CLI V1.09
-Module Version: V3.15.00.000
-Load: "/home/user/work/test/e2studio/Debug/quickstart_ck_ra6m5_v2_ep.hex" (Size=5135834, CRC=5C728790)
+The DA16600 PMOD included with the kit is leveraged to connect to a WiFi network and communicate with the /IOTCONNECT platform. 
 
-Connecting the tool (J-Link)
-      J-Link Firmware: J-Link OB-RA4M2 compiled Oct 30 2023 12:13:20
-Tool: J-Link (SEGGER J-Link (unknown))                                          
-Interface: SWD
+Follow the [DA16K AT Interface QuickStart Guide](https://github.com/avnet-iotconnect/iotc-dialog-da16k-sdk/blob/main/doc/QUICKSTART.md) and return to this guide when programmed. 
 
-Connecting the target device
-Speed: 1,500,000 Hz
-Connected to RA
+## 8. Setup Hardware
 
-Erasing the target device
-  [Code Flash 1]       00000000 - 001FFFFF
-  [Data Flash 1]       08000000 - 08001FFF                                      
-  [Code Flash 1]       00000000 - 001BFFFF                                      
-Writing data to the target device                                               
-  [Code Flash 1]       00000000 - 001BDB7F
-  [Config Area 1]      0100A100 - 0100A13F                                      
-  [Config Area 1]      0100A200 - 0100A2CF                                      
-Verifying data on the target device                                             
-  [Code Flash 1]       00000000 - 001BDB7F
-  [Config Area 1]      0100A100 - 0100A13F                                      
-  [Config Area 1]      0100A200 - 0100A2CF                                      
-                                                                                
+1. Remove the FTDI wires from the DA16600 PMOD
+2. Connect the DA16600 PMOD to the **PMOD1** connector of CK-RA6M5
+3. Connect the included USB-A to USB-micro cable from the PC to the connector labeled **DEBUG1** (next to the Ethernet port)
+4. Reconnect power to the CK-RA6M5
 
-Disconnecting the tool
+## 9. Download and Flash the Pre-Compiled CK-RA6M5 Firmware
 
-Operation successful
-```
+1. Download the pre-compiled firmware image: [quickstart_ck_ra6m5_v2_ep.hex](./e2studio/Debug/quickstart_ck_ra6m5_v2_ep.hex)
+2. Download and Install the latest version of the [Renesas Flash Programmer for Windows](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#downloads)
+3. Using `File` - `New Project`, create a new project.
+4. Select `RA` as Microcontroller, `J-Link` as Tool, and `SWD` as Interface.![](assets/win2.png)
+5. Press `Connect`.
+5. Verify the connection is successful.![](assets/win3.png)
+6. Select `Add/Remove Files...`, click `Add File(s)...`, navigate to and select the `.hex` file previously downloaded.![](assets/win4.png)
+7. Click OK.
+8. Press **Start** to start the flashing process and a progress window will pop up.
+9. Verify `Operation Completed.` message is displayed after the progress bar reaches completes.![](assets/win5.png)
 
-#### Windows
+## 10. Check Connectivity 
 
-1.) Download the latest Windows version of the [Renesas Flash Programmer](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#downloads) 
+Once the device is flashed, the device will boot, connect to /IOTCONNECT, and begin sending out telemetry.
 
-> [!NOTE]
-> At the time of testing, the latest released version is **3.15**.
+* Find your device in the /IOTCONNECT "Devices" menu and verify telemetry is visible on the device's **Live Data** tab.
 
-![](assets/win1.png)
+## 11. Import Dynamic Dashboard
+/IOTCONNECT Dynamic Dashboards are an easy way to visualize data and interact with edge devices.  
+1. Download the example **CK-RA6M5 Demo Dashboard** here: [CKRA6M5_dashboard.json](./template/CKRA6M5_dashboard.json)
+2. Switch back to the /IOTCONNECT browser window and verify the device status is displaying as `Connected`
+3. **Click** `Create Dashboard` from the top of the page
+4. **Select** the `Import Dashboard` option and **Click** *Browse* to select the dashboard template previously downloaded.
+5. **Select** the *Template* ("da16k") and your *Device Name*
+6. **Enter** a name (such as `CK-RA6M5 Demo`) and **Click** *Save* the finalize the import
 
-2.) Using `File` - `New Project`, create a new project.
+You will now be in the dashboard edit mode. You can add/remove widgets or just click `Save` in the upper-right corner to exit the edit mode.
 
-3.) Select `RA` as Microcontroller, `J-Link` as Tool, and `SWD` as Interface.
-
-![](assets/win2.png)
-
-4.) Press `Connect`.
-
-You should now have a successful connection.
-
-![](assets/win3.png)
-
-5.) Next, select `Add/Remove Files...`, click `Add File(s)...`, navigate to the `e2studio` folder and select the `.hex` file.
-
-![](assets/win4.png)
-
-6.) Click OK.
-
-7.) Press **Start** to start the flashing process.
-
-A progress window will pop up.
-
-At the end an `Operation Completed.` message will remain in the status box.
-
-![](assets/win5.png)
-
-### 5. Usage 
-
-Once the device is flashed, the device will boot, connect to /IOTCONNECT, and start sending out telemetry.
-
-If the DA16x00 device is connected to the correct PMOD port and is configured to connect to your /IOTCONNECT 
-instance, the telemetry will be visible in /IOTCONNECT on your device's **Live Data** tab.
-
-#### Supported /IOTCONNECT Device Commands
-
-You can add these commands to your device template in the /IOTCONNECT Dashboard.
-
-* `set_red_led <state>`
-
-    Controls state of red LED on the board
-
-    * `on` - Turns red LED on
-    * `off` - Truns red LED off
-
-* `set_led_frequency <freq>`
-
-    Controls the frequency of the blue LED flashing on the board
-
-    * `0` - Slow blinking
-    * `1` - Medium blinking
-    * `2` - Fast blinking
-    * `3` - Very fast blinking
-
-To execute the commands while your device is connected, go to your device's page in /IOTCONNECT and then click on the 
-**Commands** tab of the vertical toolbar. On this page you can select a command that is supported by the template and 
-enter parameters before sending.
-
-### 6. Going Further: Building & Development
-
-If you wish to modify this project or to build your own from scratch you can do so by installing and using the 
-[Flexible Software Package with e² Studio IDE](https://www.renesas.com/us/en/software-tool/flexible-software-package-fsp).
-
-You can open/import, build and debug the project as per the Renesas Quick Start guide.
-
-> [!NOTE]
-> The project is tested and built with FSP version 5.0.0, but it may work with later 5.x.x versions.
+## 12. Resources
+* [Purchase Renesas Cloud Kit CK-RA6M5](https://www.newark.com/renesas/rtk7cka6m5s04001be/cloud-kit-32bit-arm-cortex-m33f/dp/33AK7066)
+* /IOTCONNECT Resources
