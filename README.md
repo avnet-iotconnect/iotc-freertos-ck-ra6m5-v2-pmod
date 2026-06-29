@@ -65,7 +65,7 @@ In this step we will locate and download the **device certificates**.
 
 The DA16600 PMOD included with the kit is leveraged to connect to a WiFi network and communicate with the /IOTCONNECT platform. 
 
-Follow the [DA16K AT Interface QuickStart Guide](https://github.com/avnet-iotconnect/iotc-dialog-da16k-sdk/blob/main/doc/QUICKSTART.md) and return to this guide when programmed. 
+Follow the [DA16K QuickStart Guide](https://github.com/avnet-iotconnect/iotc-dialog-da16k-sdk/blob/main/doc/QUICKSTART.md) and return to this guide when programmed. 
 
 ## 8. Setup Hardware
 
