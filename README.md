@@ -76,7 +76,7 @@ Follow the [DA16K AT Interface QuickStart Guide](https://github.com/avnet-iotcon
 
 ## 9. Download and Flash the Pre-Compiled CK-RA6M5 Firmware
 
-1. Download the pre-compiled firmware image: [quickstart_ck_ra6m5_v2_ep.hex](./e2studio/Debug/quickstart_ck_ra6m5_v2_ep.hex)
+1. Download the pre-compiled firmware image: [quickstart_ck_ra6m5_v2_ep.hex](https://s3.us-east-1.amazonaws.com/downloads.iotconnect.io/partners/renesas/ra6m5/quickstart_ck_ra6m5_v2_ep.hex)
 2. Download and Install the latest version of the [Renesas Flash Programmer for Windows](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#downloads)
 3. Using `File` - `New Project`, create a new project.
 4. Select `RA` as Microcontroller, `J-Link` as Tool, and `SWD` as Interface.![](assets/win2.png)
