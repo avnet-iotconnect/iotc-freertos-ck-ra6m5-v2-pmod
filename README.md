@@ -109,7 +109,7 @@ Once the device is flashed, the device will boot, connect to /IOTCONNECT, and be
 
 ## 11. Import Dynamic Dashboard
 /IOTCONNECT Dynamic Dashboards are an easy way to visualize data and interact with edge devices.  
-1. Download the example **CK-RA6M5 Demo Dashboard** here: [CKRA6M5_dashboard.json](./template/CKRA6M5_dashboard.json)
+1. Download the example **CK-RA6M5 Demo Dashboard** here: [CKRA6M5_dashboard.json](./files/CKRA6M5_dashboard_export.json)
 2. Switch back to the /IOTCONNECT browser window and verify the device status is displaying as `Connected`
 3. **Click** `Create Dashboard` from the top of the page
 4. **Select** the `Import Dashboard` option and **Click** *Browse* to select the dashboard template previously downloaded.
