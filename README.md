@@ -56,7 +56,7 @@ In this step, we will create a **Device** associated with the previously importe
 In this step we will locate and download the **device certificates**.
 
 1. Just below the Device Configuration Information icon, click the `Connection Info` link.<br>![connection-info.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/connection-info.png?raw=true)
-2. Click on the **Certificates** icon in the top-right and save the file to your working directory.<br>![icon-certificates.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/icon-certificates.png?raw=true)
+2. Click on the **Certificates** icon in the top-right and save the **Primary** certificate file to your working directory.<br>![icon-certificates.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/icon-certificates.png?raw=true)
 3. Extract the contents of the `*-certificates.zip` file for use in the next section. 
 
 > [!IMPORTANT]
