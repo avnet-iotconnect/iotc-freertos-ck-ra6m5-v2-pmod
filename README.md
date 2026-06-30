@@ -83,14 +83,22 @@ Follow the [DA16K QuickStart Guide](https://github.com/avnet-iotconnect/iotc-dia
 5. Enter a **Project Name** such as `QuickStart`
 6. Navigate to a Project Directory of your choosing: eg `C:\Renesas\ck-ra6m5`
 7. In the **Communication** section change the **Tool** to `J-Link` and the **Interface** to `SWD`
+
 ![](assets/win2.png)
+
 9. Press `Connect`.
 5. Verify the connection is successful.
+
 ![](assets/win3.png)
-6. Select `Add/Remove Files...`, click `Add File(s)...`, navigate to and select the `.hex` file previously downloaded.![](assets/win4.png)
+
+6. Select `Add/Remove Files...`, click `Add File(s)...`, navigate to and select the `.hex` file previously downloaded.
+
+![](assets/win4.png)
+
 7. Click `OK`.
 8. Press `Start` to start the flashing process and a progress window will pop up.
 9. Verify `Operation Completed.` message is displayed after the progress bar reaches completes.
+
 ![](assets/win5.png)
 
 ## 10. Check Connectivity 
