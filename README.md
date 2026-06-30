@@ -79,13 +79,19 @@ Follow the [DA16K QuickStart Guide](https://github.com/avnet-iotconnect/iotc-dia
 1. Download the pre-compiled firmware image: [quickstart_ck_ra6m5_v2_ep.hex](https://downloads.iotconnect.io/partners/renesas/ra6m5/quickstart_ck_ra6m5_v2_ep.hex)
 2. Download and Install the latest version of the [Renesas Flash Programmer for Windows](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#downloads)
 3. Using `File` - `New Project`, create a new project.
-4. Select `RA` as Microcontroller, `J-Link` as Tool, and `SWD` as Interface.![](assets/win2.png)
-5. Press `Connect`.
-5. Verify the connection is successful.![](assets/win3.png)
+4. Select `RA` as **Microcontroller**,
+5. Enter a **Project Name** such as `QuickStart`
+6. Navigate to a Project Directory of your choosing: eg `C:\Renesas\ck-ra6m5`
+7. In the **Communication** section change the **Tool** to `J-Link` and the **Interface** to `SWD`
+![](assets/win2.png)
+9. Press `Connect`.
+5. Verify the connection is successful.
+![](assets/win3.png)
 6. Select `Add/Remove Files...`, click `Add File(s)...`, navigate to and select the `.hex` file previously downloaded.![](assets/win4.png)
-7. Click OK.
-8. Press **Start** to start the flashing process and a progress window will pop up.
-9. Verify `Operation Completed.` message is displayed after the progress bar reaches completes.![](assets/win5.png)
+7. Click `OK`.
+8. Press `Start` to start the flashing process and a progress window will pop up.
+9. Verify `Operation Completed.` message is displayed after the progress bar reaches completes.
+![](assets/win5.png)
 
 ## 10. Check Connectivity 
 
