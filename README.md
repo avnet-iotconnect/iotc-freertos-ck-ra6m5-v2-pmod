@@ -29,7 +29,7 @@ The free subscription may be obtained directly from [iotconnect.io](https://iotc
 
 ## 4. Import Device Template
 
-1. Download the pre-made [Device Template](./template/da16k_template.JSON) for the CK-RA6M5 Kit.
+1. Download the pre-made [Device Template](./template/ckra6m5_template.JSON) for the CK-RA6M5 Kit.
 2. Login to the platform by navigating to [console.iotconnect.io](https://console.iotconnect.io)
 3. From the navigation panel on the left, select the **Devices** icon and the **Device** sub-menu.<br>![menu-devices-device.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/menu-devices-device.png?raw=true)  
 4. At the bottom of the page, select the **Templates** icon from the toolbar.<br>![menu-templates.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/menu-templates.png?raw=true)  
@@ -46,7 +46,7 @@ In this step, we will create a **Device** associated with the previously importe
 ![button-create-device.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/button-create-device.png?raw=true)
 3. Enter a custom device **Unique ID** (also called a **DUID**) and **Device Name** such as `CK-RA6M5`
 4. Select the **Entity** to associate the device (For new accounts, there is only one option)  
-5. Select the previously imported template `da16k` 
+5. Select the previously imported template `ckra6m5` 
 6. Under **Device Certificate** select **Auto-generated**
 7. Click **Save & View**
 8. Download the **Device Configuration Information** by clicking the icon in the upper right of the device page  
@@ -113,7 +113,7 @@ Once the device is flashed, the device will boot, connect to /IOTCONNECT, and be
 2. Switch back to the /IOTCONNECT browser window and verify the device status is displaying as `Connected`
 3. **Click** `Create Dashboard` from the top of the page
 4. **Select** the `Import Dashboard` option and **Click** *Browse* to select the dashboard template previously downloaded.
-5. **Select** the *Template* ("da16k") and your *Device Name*
+5. **Select** the *Template* ("ckra6m5") and your *Device Name*
 6. **Enter** a name (such as `CK-RA6M5 Demo`) and **Click** *Save* the finalize the import
 
 You will now be in the dashboard edit mode. You can add/remove widgets or just click `Save` in the upper-right corner to exit the edit mode.
