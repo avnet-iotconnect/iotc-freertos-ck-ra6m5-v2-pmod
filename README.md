@@ -118,6 +118,8 @@ Once the device is flashed, the device will boot, connect to /IOTCONNECT, and be
 
 You will now be in the dashboard edit mode. You can add/remove widgets or just click `Save` in the upper-right corner to exit the edit mode.
 
+![CK-RA6M5_dashboard_image.png](assets/CK-RA6M5_dashboard_image.png)
+
 ## 12. Resources
 * [Purchase Renesas Cloud Kit CK-RA6M5](https://www.newark.com/renesas/rtk7cka6m5s04001be/cloud-kit-32bit-arm-cortex-m33f/dp/33AK7066)
 * /IOTCONNECT Resources
