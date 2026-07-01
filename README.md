@@ -29,7 +29,7 @@ The free subscription may be obtained directly from [iotconnect.io](https://iotc
 
 ## 4. Import Device Template
 
-1. Download the pre-made Device Template: [template/ckra6m5_template.json](./template/ckra6m5_template.json) for the CK-RA6M5 Kit.
+1. Download the pre-made Device Template: [ckra6m5_template.json](./template/ckra6m5_template.json) for the CK-RA6M5 Kit.
 2. Login to the platform by navigating to [console.iotconnect.io](https://console.iotconnect.io)
 3. From the navigation panel on the left, select the **Devices** icon and the **Device** sub-menu.<br>![menu-devices-device.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/menu-devices-device.png?raw=true)  
 4. At the bottom of the page, select the **Templates** icon from the toolbar.<br>![menu-templates.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/menu-templates.png?raw=true)  
