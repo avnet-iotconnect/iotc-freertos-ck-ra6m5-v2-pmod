@@ -120,6 +120,20 @@ You will now be in the dashboard edit mode. You can add/remove widgets or just c
 
 ![CK-RA6M5_dashboard_image.png](assets/CK-RA6M5_dashboard_image.png)
 
+### Supported /IOTCONNECT Device Commands
+
+Controls state of red LED on the board
+* set_red_led `<state>`
+  * on - Turns red LED on
+  * off - Truns red LED off
+
+Controls the frequency of the blue LED flashing on the board
+* set_led_frequency `<freq>`
+  * 0 - Slow blinking
+  * 1 - Medium blinking
+  * 2 - Fast blinking
+  * 3 - Very fast blinking
+
 ## 12. Resources
 * [Purchase Renesas Cloud Kit CK-RA6M5](https://www.newark.com/renesas/rtk7cka6m5s04001be/cloud-kit-32bit-arm-cortex-m33f/dp/33AK7066)
 * /IOTCONNECT Resources
