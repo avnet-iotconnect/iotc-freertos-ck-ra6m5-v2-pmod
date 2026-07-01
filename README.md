@@ -72,7 +72,7 @@ Follow the [DA16K QuickStart Guide](https://github.com/avnet-iotconnect/iotc-dia
 1. Remove the FTDI wires from the DA16600 PMOD
 2. Connect the DA16600 PMOD to the **PMOD1** connector of CK-RA6M5
 3. Connect the included USB-A to USB-micro cable from the PC to the connector labeled **DEBUG1** (next to the Ethernet port)
-4. Reconnect power to the CK-RA6M5
+![ck-ra6m5_board_setup.png](assets/ck-ra6m5_board_setup.png)
 
 ## 9. Download and Flash the Pre-Compiled CK-RA6M5 Firmware
 
