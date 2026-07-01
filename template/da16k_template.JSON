@@ -268,27 +268,6 @@
             "requiredParam": true,
             "requiredAck": true,
             "isOTACommand": false
-        },
-        {
-            "name": "set-user-led",
-            "command": "set-user-led",
-            "requiredParam": false,
-            "requiredAck": true,
-            "isOTACommand": false
-        },
-        {
-            "name": "aws-qualification-start",
-            "command": "aws-qualification-start",
-            "requiredParam": true,
-            "requiredAck": false,
-            "isOTACommand": false
-        },
-        {
-            "name": "test",
-            "command": "test",
-            "requiredParam": false,
-            "requiredAck": true,
-            "isOTACommand": false
         }
     ],
     "messageVersion": "2.1",
