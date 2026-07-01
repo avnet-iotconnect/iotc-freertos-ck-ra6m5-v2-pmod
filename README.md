@@ -29,7 +29,7 @@ The free subscription may be obtained directly from [iotconnect.io](https://iotc
 
 ## 4. Import Device Template
 
-1. Download the pre-made [Device Template](./template/ckra6m5_template.JSON) for the CK-RA6M5 Kit.
+1. Download the pre-made Device Template: [template/ckra6m5_template.json](./template/ckra6m5_template.json) for the CK-RA6M5 Kit.
 2. Login to the platform by navigating to [console.iotconnect.io](https://console.iotconnect.io)
 3. From the navigation panel on the left, select the **Devices** icon and the **Device** sub-menu.<br>![menu-devices-device.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/menu-devices-device.png?raw=true)  
 4. At the bottom of the page, select the **Templates** icon from the toolbar.<br>![menu-templates.png](https://github.com/avnet-iotconnect/avnet-iotconnect.github.io/blob/main/documentation/iotconnect/media/menu-templates.png?raw=true)  
@@ -109,7 +109,7 @@ Once the device is flashed, the device will boot, connect to /IOTCONNECT, and be
 
 ## 11. Import Dynamic Dashboard
 /IOTCONNECT Dynamic Dashboards are an easy way to visualize data and interact with edge devices.  
-1. Download the example **CK-RA6M5 Demo Dashboard** here: [CKRA6M5_dashboard.json](./files/CKRA6M5_dashboard_export.json)
+1. Download the example **CK-RA6M5 Demo Dashboard** here: [ckra6m5_dashboard.json](./template/ckra6m5_dashboard.json)
 2. Switch back to the /IOTCONNECT browser window and verify the device status is displaying as `Connected`
 3. **Click** `Create Dashboard` from the top of the page
 4. **Select** the `Import Dashboard` option and **Click** *Browse* to select the dashboard template previously downloaded.
